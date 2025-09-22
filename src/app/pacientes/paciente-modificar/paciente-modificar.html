@@ -1,0 +1,70 @@
+<div class="form-container">
+    <h2>Modificar Datos del Paciente</h2>
+
+    <div *ngIf="mensajeExito" class="mensaje exito">{{ mensajeExito }}</div>
+    <div *ngIf="mensajeError" class="mensaje error">{{ mensajeError }}</div>
+
+    <form [formGroup]="modificarForm" (ngSubmit)="onGuardarCambios()">
+
+        <h3>Datos Personales</h3>
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="nombres">Nombres</label>
+                <input id="nombres" type="text" formControlName="nombres" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input id="apellidos" type="text" formControlName="apellidos" required>
+            </div>
+            <div class="form-group">
+                <label>Sexo</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" value="Masculino" formControlName="sexo"> Masculino
+                    </label>
+                    <label>
+                        <input type="radio" value="Femenino" formControlName="sexo"> Femenino
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                <input id="fechaNacimiento" type="date" formControlName="fechaNacimiento" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" type="text" formControlName="telefono">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" formControlName="email">
+            </div>
+            <div class="form-group full-width">
+                <label for="direccion">Dirección</label>
+                <input id="direccion" type="text" formControlName="direccion">
+            </div>
+        </div>
+
+        <h3>Datos Médicos</h3>
+        <div class="form-grid">
+            <div class="form-group full-width">
+                <label for="antecedentes">Antecedentes</label>
+                <textarea id="antecedentes" formControlName="antecedentes" rows="3"></textarea>
+            </div>
+            <div class="form-group full-width">
+                <label for="alergias">Alergias</label>
+                <textarea id="alergias" formControlName="alergias" rows="3"></textarea>
+            </div>
+            <div class="form-group full-width">
+                <label for="enfermedadesCronicas">Enfermedades Crónicas</label>
+                <textarea id="enfermedadesCronicas" formControlName="enfermedadesCronicas" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" class="btn-accion-tabla btn-inactivar" (click)="inactivar()">Inactivar</button>
+            <button type="button" class="btn-secundario" (click)="volver()">Volver</button>
+            <button type="submit" class="btn-accion" [disabled]="modificarForm.invalid">Guardar Cambios</button>
+        </div>
+    </form>
+</div>

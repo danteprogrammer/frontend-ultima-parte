@@ -1,0 +1,90 @@
+.busqueda-container {
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-accion,
+.btn-secundario {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-accion {
+    background-color: #005792;
+    color: white;
+}
+
+.btn-secundario {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtros select,
+.filtros input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filtros input {
+    flex-grow: 1;
+}
+
+
+.acciones-botones {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-accion-tabla {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-modificar {
+    background-color: #007bff;
+}
+
+.btn-inactivar {
+    background-color: #dc3545;
+}
+
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.paginacion button {
+
+}
+
+.paginacion button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

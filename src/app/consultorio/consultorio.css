@@ -1,0 +1,220 @@
+.consultorios-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Estados de carga y error */
+.loading-container, .error-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #f5c6cb;
+}
+
+.btn-retry {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.btn-retry:hover {
+  background-color: #c82333;
+}
+
+/* Grid de consultorios */
+.consultorios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.consultorio-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #e9ecef;
+}
+
+.consultorio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.consultorio-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  position: relative;
+}
+
+.consultorio-numero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.numero {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.estado-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.consultorio-piso {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.consultorio-body {
+  padding: 20px;
+}
+
+.consultorio-descripcion {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.consultorio-estado {
+  margin-bottom: 15px;
+}
+
+.estado-label {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.estado-disponible {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.estado-ocupado {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.estado-mantenimiento {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.consultorio-footer {
+  background-color: #f8f9fa;
+  padding: 15px 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.info-text {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+/* Estado sin datos */
+.no-data {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+}
+
+.no-data-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-data h3 {
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.no-data p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .consultorios-container {
+    padding: 15px;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .consultorios-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .consultorio-header {
+    padding: 15px;
+  }
+
+  .consultorio-body {
+    padding: 15px;
+  }
+
+  .consultorio-footer {
+    padding: 10px 15px;
+  }
+}

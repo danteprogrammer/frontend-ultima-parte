@@ -1,0 +1,58 @@
+<div class="consultorios-container">
+  <div class="page-header">
+    <h1>Gestión de Consultorios</h1>
+    <p class="subtitle">Vista general de todos los consultorios disponibles</p>
+  </div>
+
+    <div *ngIf="loading" class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Cargando consultorios...</p>
+  </div>
+
+  <div *ngIf="error" class="error-container">
+    <div class="error-message">
+      <strong>Error:</strong> {{ error }}
+    </div>
+    <button (click)="cargarConsultorios()" class="btn-retry">Reintentar</button>
+  </div>
+
+    <div *ngIf="!loading && !error" class="consultorios-grid">
+    <div *ngFor="let consultorio of consultorios" class="consultorio-card">
+      <div class="consultorio-header">
+        <div class="consultorio-numero">
+          <span class="numero">{{ consultorio.numero }}</span>
+          <span class="estado-icon" [ngClass]="getEstadoClass(consultorio.estado)">
+            {{ getEstadoIcon(consultorio.estado) }}
+          </span>
+        </div>
+        <div class="consultorio-piso">
+          Piso {{ consultorio.piso }}
+        </div>
+      </div>
+
+      <div class="consultorio-body">
+        <h3 class="consultorio-descripcion">{{ consultorio.descripcion }}</h3>
+
+        <div class="consultorio-estado">
+          <span class="estado-label" [ngClass]="getEstadoClass(consultorio.estado)">
+            {{ consultorio.estado }}
+          </span>
+        </div>
+      </div>
+
+      <div class="consultorio-footer">
+        <div class="consultorio-info">
+          <small class="info-text">
+            <strong>ID:</strong> {{ consultorio.idConsultorio }}
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div *ngIf="!loading && !error && consultorios.length === 0" class="no-data">
+    <div class="no-data-icon">🏥</div>
+    <h3>No hay consultorios disponibles</h3>
+    <p>No se encontraron consultorios en el sistema.</p>
+  </div>
+</div>

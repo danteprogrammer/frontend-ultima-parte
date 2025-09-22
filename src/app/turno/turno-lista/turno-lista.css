@@ -1,0 +1,226 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    color: #333;
+    margin: 0;
+}
+
+.btn-refresh {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-refresh:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.btn-refresh:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.mensaje {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.mensaje.exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.mensaje.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.loading, .no-data {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+.turnos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.turno-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-left: 4px solid #007bff;
+}
+
+.turno-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.turno-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.turno-id {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.turno-info {
+    margin-bottom: 15px;
+}
+
+.info-item {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+.info-item strong {
+    color: #333;
+    display: inline-block;
+    min-width: 80px;
+}
+
+.turno-status {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.estado {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.estado-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.estado-confirmado {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.estado-en-proceso {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.estado-completado {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.estado-cancelado {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.turno-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-confirmar {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-confirmar:hover {
+    background-color: #218838;
+}
+
+.btn-iniciar {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-iniciar:hover {
+    background-color: #0056b3;
+}
+
+.btn-completar {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btn-completar:hover {
+    background-color: #138496;
+}
+
+.btn-cancelar {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-cancelar:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+    .turnos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .turno-actions {
+        flex-direction: column;
+    }
+
+    .btn-action {
+        width: 100%;
+    }
+}

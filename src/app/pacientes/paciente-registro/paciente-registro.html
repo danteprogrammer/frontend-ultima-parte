@@ -1,0 +1,58 @@
+<div class="form-container">
+    <h2>Registro de Nuevo Paciente</h2>
+
+    <div *ngIf="mensajeExito" class="mensaje exito">{{ mensajeExito }}</div>
+    <div *ngIf="mensajeError" class="mensaje error">{{ mensajeError }}</div>
+
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="dni">Documento de Identidad</label>
+                <input id="dni" type="text" formControlName="dni" required>
+            </div>
+            <div class="form-group">
+                <label for="nombres">Nombres</label>
+                <input id="nombres" type="text" formControlName="nombres" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input id="apellidos" type="text" formControlName="apellidos" required>
+            </div>
+
+            <!-- Nuevo campo Sexo -->
+            <div class="form-group">
+                <label>Sexo</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" value="Masculino" formControlName="sexo"> Masculino
+                    </label>
+                    <label>
+                        <input type="radio" value="Femenino" formControlName="sexo"> Femenino
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                <input id="fechaNacimiento" type="date" formControlName="fechaNacimiento" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" type="text" formControlName="telefono">
+            </div>
+            <div class="form-group full-width">
+                <label for="direccion">Dirección</label>
+                <input id="direccion" type="text" formControlName="direccion">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" formControlName="email">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" class="btn-cancelar">Cancelar</button>
+            <button type="submit" [disabled]="registroForm.invalid">Registrar</button>
+        </div>
+    </form>
+</div>

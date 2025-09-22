@@ -1,0 +1,62 @@
+<div class="busqueda-container">
+    <div class="header">
+        <h2>Pacientes Registrados</h2>
+        <div class="actions">
+            <button class="btn-accion" routerLink="/pacientes/nuevo">Registrar Paciente</button>
+            <button class="btn-secundario" routerLink="/pacientes/inactivos">Lista de Pacientes Inactivos</button>
+        </div>
+    </div>
+
+    <form [formGroup]="busquedaForm" (ngSubmit)="buscarPacientes()">
+        <div class="filtros">
+            <select formControlName="filtro">
+                <option value="nombre">Buscar por Nombre/Apellido</option>
+                <option value="DNI">Buscar por DNI</option>
+            </select>
+            <input type="text" formControlName="termino" placeholder="Ingrese término de búsqueda...">
+            <button type="submit">Buscar</button>
+        </div>
+    </form>
+
+    <div class="resultados-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Sexo</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paciente of pacientes">
+                    <td>{{ paciente.dni }}</td>
+                    <td>{{ paciente.nombres }}</td>
+                    <td>{{ paciente.apellidos }}</td>
+                    <td>{{ paciente.sexo }}</td>
+                    <td>{{ paciente.telefono }}</td>
+                    <td>
+                        <div class="acciones-botones">
+                            <a [routerLink]="['/pacientes/modificar', paciente.idPaciente]"
+                                class="btn-accion-tabla btn-modificar">Modificar</a>
+                            <button class="btn-accion-tabla btn-inactivar"
+                                (click)="inactivar(paciente)">Inactivar</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="busquedaRealizada && pacientes.length === 0" class="no-resultados">
+            <p>No se encontraron pacientes.</p>
+        </div>
+
+        <div *ngIf="totalPages > 0" class="paginacion">
+            <button (click)="irAPagina(currentPage - 1)" [disabled]="currentPage === 0">Anterior</button>
+            <span>Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+            <button (click)="irAPagina(currentPage + 1)" [disabled]="currentPage + 1 >= totalPages">Siguiente</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="main-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="images/logo.png" alt="Logo SaludVida" class="logo">
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="menu-item has-submenu">
+          <a (click)="togglePacientesMenu()">
+            <span>Pacientes</span>
+          </a>
+          <ul class="submenu" *ngIf="isPacientesMenuOpen">
+            <li><a routerLink="/pacientes/nuevo" routerLinkActive="active">Registrar Paciente</a></li>
+            <li><a routerLink="/pacientes/registrados" routerLinkActive="active">Pacientes Registrados</a></li>
+            <li><a routerLink="/turno/asignar" routerLinkActive="active">Asignar Turno</a></li>
+            <li><a routerLink="/consultorios" routerLinkActive="active">Gestión de Consultorios</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a (click)="logout()" class="logout-button">
+        <span>Logout</span>
+        <img src="images/icono_logout.png" alt="Logout" class="logout-icon">
+      </a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,45 @@
+<div class="inactivos-container">
+    <div class="header">
+        <h2>Pacientes Inactivos</h2>
+        <button class="btn-secundario" routerLink="/pacientes/registrados">Volver a Pacientes Activos</button>
+    </div>
+
+    <div class="resultados-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Sexo</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paciente of pacientes">
+                    <td>{{ paciente.dni }}</td>
+                    <td>{{ paciente.nombres }}</td>
+                    <td>{{ paciente.apellidos }}</td>
+                    <td>{{ paciente.sexo }}</td>
+                    <td>{{ paciente.telefono }}</td>
+                    <td>
+                        <div class="acciones-botones">
+                            <button class="btn-accion-tabla btn-activar" (click)="activar(paciente)">Activar</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="pacientes.length === 0" class="no-resultados">
+            <p>No hay pacientes inactivos en este momento.</p>
+        </div>
+
+        <div *ngIf="totalPages > 0" class="paginacion">
+            <button (click)="irAPagina(currentPage - 1)" [disabled]="currentPage === 0">Anterior</button>
+            <span>Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+            <button (click)="irAPagina(currentPage + 1)" [disabled]="currentPage + 1 >= totalPages">Siguiente</button>
+        </div>
+    </div>
+</div>

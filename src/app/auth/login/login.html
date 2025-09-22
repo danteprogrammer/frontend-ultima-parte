@@ -1,0 +1,31 @@
+<div class="login-container">
+    <div class="swoop-bg-1"></div>
+    <div class="swoop-bg-2"></div>
+
+    <div class="left-panel">
+        <img src="images/logo-grande.png" alt="Clínica SaludVida Logo" class="main-logo">
+        <h1 class="title">Sistema Clínico SaludVida</h1>
+    </div>
+
+    <div class="right-panel">
+        <div class="login-form-wrapper">
+            <h3>Iniciar Sesión</h3>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-group">
+                    <input type="text" id="username" formControlName="username" placeholder="Usuario" required />
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="password" formControlName="password" placeholder="Contraseña" required />
+                </div>
+
+                <div *ngIf="errorMessage" class="error-message">
+                    {{ errorMessage }}
+                </div>
+
+                <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+            </form>
+        </div>
+    </div>
+</div>

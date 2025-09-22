@@ -1,0 +1,52 @@
+<div class="form-container">
+    <h2>Asignación de Turnos</h2>
+
+    <div *ngIf="mensajeExito" class="mensaje exito">{{ mensajeExito }}</div>
+    <div *ngIf="mensajeError" class="mensaje error">{{ mensajeError }}</div>
+
+    <form [formGroup]="asignacionForm" (ngSubmit)="onSubmit()">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="pacienteId">ID del Paciente</label>
+                <input id="pacienteId" type="number" formControlName="pacienteId" required>
+            </div>
+
+            <div class="form-group">
+                <label for="consultorioId">Consultorio</label>
+                <select id="consultorioId" formControlName="consultorioId" required>
+                    <option value="">Seleccionar consultorio</option>
+                    <option *ngFor="let consultorio of consultorios" [value]="consultorio.idConsultorio">
+                        {{ consultorio.numero }} - Piso {{ consultorio.piso }} ({{ consultorio.descripcion }})
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input id="fecha" type="date" formControlName="fecha" [min]="getMinDate()" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hora">Hora</label>
+                <input id="hora" type="time" formControlName="hora" min="08:00" max="18:00" required>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="motivo">Motivo de la Consulta</label>
+                <input id="motivo" type="text" formControlName="motivo" required>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="observaciones">Observaciones</label>
+                <textarea id="observaciones" formControlName="observaciones" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" class="btn-cancelar" (click)="asignacionForm.reset()">Limpiar</button>
+            <button type="submit" [disabled]="asignacionForm.invalid || cargando">
+                {{ cargando ? 'Asignando...' : 'Asignar Turno' }}
+            </button>
+        </div>
+    </form>
+</div>
