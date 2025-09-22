@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { tokenInterceptor } from './shared/token-interceptor';
+import { errorInterceptor } from './shared/error-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(
-      withInterceptors([tokenInterceptor]) 
+      withInterceptors([tokenInterceptor,errorInterceptor]) 
     ),
     ReactiveFormsModule
   ]
